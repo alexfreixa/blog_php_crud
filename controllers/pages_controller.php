@@ -4,8 +4,8 @@
 
         public function home() {
             //Simulación de datos obtenidos de un modelo
-            $first_name = 'Pepe';
-            $last_name = 'Lopez';
+            $first_name = 'Alex';
+            $last_name = 'Freixa';
             require_once('views/pages/home.php');
         }
 

@@ -1,4 +1,5 @@
 <?php
+
  class Db {
 
         private static $instance = NULL;
@@ -18,4 +19,5 @@
         }
 
     }
+    
 ?>
