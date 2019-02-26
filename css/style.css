@@ -1,0 +1,86 @@
+.container {
+	width: 1400	px;
+	padding-top: 30px;
+	height: 100%;
+	background-color: #fff9;
+	box-shadow: 0px 0px 12px 0px rgba(68, 68, 68, 0.897);
+}
+
+.menu-nav-superior {
+	background-image:
+	
+	linear-gradient(to bottom, 
+	var(--color-menu), 
+	var(--color-menu)),
+	
+	linear-gradient(to bottom, 
+	var(--color-menu), 
+	var(--color-menu));
+
+    background-clip: content-box, padding-box;
+}
+
+footer {
+	background-color: #3b3b3b;
+	color: white;
+
+}
+.pt-4, .py-4 {
+    padding-top: 0 !important;
+}
+
+body{
+	background-color: #82a1ca;
+}
+
+header{ 
+	position: sticky;
+	top: 0;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+a {
+	color: #79a4d2;
+}
+
+.showimg {
+	width: 240px;
+}
+
+table {
+	min-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: white;
+	border-radius: 0.5rem;
+	box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.4);
+}
+
+td, th {
+	padding: 0.6rem;
+}
+
+th {
+	color: white;
+	background-color: rgb(58, 117, 141)
+}
+.show tr td {
+	min-width: 300px;
+	box-shadow: 0px 0px 1.2px 0px rgba(0,0,0,0.4);
+
+}
+.show tr th {
+	box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.4);
+
+}
+.icon {
+	max-width: 15px;
+}
+
+:root {
+	--color-menu: rgb(30, 52, 77);
+}

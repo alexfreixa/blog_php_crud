@@ -2,16 +2,22 @@
 
     function call($controller, $action) {
         require_once('controllers/' . $controller . '_controller.php');
-        switch($controller) {
-        case 'pages':
-        $controller = new PagesController();
-        break;
-        case 'posts':
-        // necesitamos el modelo para después consultar a la BBDD
-        // desde el controlador
-        require_once('models/post.php');
-        $controller = new PostsController();
-        break;
+        switch ($controller) {
+            case 'pages':
+                $controller = new PagesController();
+                break;
+            case 'posts':
+                // necesitamos el modelo para después consultar a la BBDD
+                // desde el controlador
+                require_once('models/post.php');
+                $controller = new PostsController();
+                break;
+            case 'sections':
+                // necesitamos el modelo para después consultar a la BBDD
+                // desde el controlador
+                require_once('models/section.php');
+                $controller = new SectionsController();
+                break;
         }
         // llama al método guardado en $action
         $controller->{ $action }();
@@ -22,7 +28,8 @@
     // Agregando una entrada para el nuevo controlador y sus acciones.
     $controllers = array(
         'pages' => ['home', 'error'],
-        'posts' => ['index', 'show', 'create','update', 'delete']
+        'posts' => ['index', 'show', 'create','update', 'delete'],
+        'sections' => ['index', 'create','update', 'delete']
     );
 
     // Verifica que tanto el controlador como la acción solicitados estén permitidos
