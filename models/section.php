@@ -2,8 +2,9 @@
 
     class Section {
 
-        // Definimos tres atributos
-        // Los declaramos como públicos para acceder directamente $section->section_id
+        // Definim els atributs
+        // Els declarem com a publics para accedir-hi directament $section->section_id
+        
         public $section_id;
         public $section_name;
         public $edat;
@@ -31,9 +32,9 @@
         }
 
         public static function find($section_id) {
-            //AFEGIR: image, title, creation_date, update_date
+
             $db = Db::getInstance();
-            $section_id = intval($section_id); //Comprovem que el section_id es un enter
+            $section_id = intval($section_id);
             $req = $db->prepare('SELECT * FROM sections WHERE section_id = :section_id');
             $req->execute(array('section_id' => $section_id)); // Es prepara la sentencia amb el valor de :section_id per $section_id.
             $section = $req->fetch(); 

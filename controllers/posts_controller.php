@@ -7,12 +7,13 @@ include "models/section.php";
         public function index() {
 
             // Guardamos todos los posts en una variable
-            if(isset($_GET['sort'])) { //si obtenemos el get de sort significa que queremos que nos ordene
+            if(isset($_GET['sort'])) { //
 
-                $_GET['sort'] =='desc' ? $sort='desc' : $sort = 'asc'; //si get sort es desc, la variable sort sera desc, si no asc
+                $_GET['sort'] =='desc' ? $sort='desc' : $sort = 'asc'; //Depenen del que rebem per GET serà o asc o desc.
                 if($_GET['order']=='title') $field = "title"; //despues comprobamos cual es el field que queremos ordenar
                 if($_GET['order']=='author') $field = "author";
                 if($_GET['order']=='create_date') $field = "create_date";
+                if($_GET['order']=='section') $field = "section_id";
                 
                 $posts = Post::all($field,$sort); //pasamos las dos variables para que nos ordene dicho field como queramos
                 
@@ -21,7 +22,8 @@ include "models/section.php";
                 $posts = Post::all("",""); //si no nos han pasado nada dejamos los parametros vacios
 
             }
-
+            
+            $sections = Section::all('');
             require_once('views/posts/index.php');
 
         }
@@ -48,12 +50,13 @@ include "models/section.php";
             $post = Post::create($_POST['title'], $_POST['author'], $_POST['content'], $_POST['section_id'], $image);
             $uploadedPhoto = Post::uploadPhoto($image); //subimos la foto a nuestra carpeta
                 
-            if($post == false) { //si el insert en la base de datos ha salido bien
+            if($post == false) {
 
                 $posts = Post::all("","");
+                $sections = Section::all('');
                 require_once('views/posts/index.php');
 
-            } else { //si tenemos algun error llamamos a la pagina de error
+            } else { 
                 return call('pages', 'error');
             }
             
@@ -74,9 +77,10 @@ include "models/section.php";
                 $post = Post::update($_POST['title'], $_POST['author'], $_POST['content'], $_POST['section_id'], $image, $id);
                 $uploadedPhoto = Post::uploadPhoto($image);
 
-                if($post == false) {
+                if($post == false) { //S'actualitza i se'ns retorna la vista index, cridant tots els posts i sections amb les funcions all del seu model corresponent
                     
                     $posts = Post::all("","");
+                    $sections = Section::all('');
                     require_once('views/posts/index.php');
                     
                 } else {
@@ -86,7 +90,7 @@ include "models/section.php";
                     
                 }
 
-            } else { //Si no se'ns passen parametres mostrem el formulari.
+            } else { //Si no se'ns passen parametres mostrem el formulari a modificar
                 
                 $sections = Section::all('');
                 $post = Post::find($_GET['id']);
@@ -100,13 +104,13 @@ include "models/section.php";
         public function delete() {
 
             if (!isset($_GET['id'])) {
-                return call('pages', 'error');
+                return call('pages', 'error'); //Si no hi ha id ens retorna la pagina d'error
             }
             
-            $post = Post::delete($_GET['id']); // Utilizamos el id para obtener el post correspondienteç
-
-            $posts = Post::all("","");
-            require_once('views/posts/index.php');
+            $post = Post::delete($_GET['id']); //Passem al model el id rebut per GET desde el formulari per eliminar
+            $sections = Section::all(''); //Carreguem el model de Section i la seva funcio all per obtenir totes les seccions
+            $posts = Post::all("",""); //Carreguem el model de Post i la seva funcio all per obtenir totes les seccions
+            require_once('views/posts/index.php'); //recarrega la vista de tots els posts
 
         }
 

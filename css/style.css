@@ -1,6 +1,6 @@
 .container {
 	width: 1400	px;
-	padding-top: 30px;
+	padding-top: 40px;
 	height: 100%;
 	background-color: #fff9;
 	box-shadow: 0px 0px 12px 0px rgba(68, 68, 68, 0.897);
@@ -18,13 +18,15 @@
 	var(--color-menu));
 
     background-clip: content-box, padding-box;
+	
+	min-height: 80px
 }
 
 footer {
 	background-color: #3b3b3b;
 	color: white;
-
 }
+
 .pt-4, .py-4 {
     padding-top: 0 !important;
 }
@@ -42,16 +44,12 @@ a:hover{
 	text-decoration: none;
 }
 
-a {
-	color: #79a4d2;
-}
-
 .showimg {
-	width: 240px;
+	width: 400px;
 }
 
 table {
-	min-width: 900px;
+	min-width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -78,7 +76,7 @@ th {
 
 }
 .icon {
-	max-width: 15px;
+	max-width: 10px;
 }
 
 :root {

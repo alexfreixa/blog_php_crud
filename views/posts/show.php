@@ -5,6 +5,11 @@
         <td>#<?php echo $post->id; ?></td>
     </tr>
     <tr>
+        <th>Image</th>
+            <!--ternario que si la imagen no es null, la muestra, y si si es null muestra el texto de no image found-->
+        <td><?php echo $post->image !=null ?  "<img src='uploads/{$post->image}' class='showimg'/>" :  "No image found" ; ?></td>
+    </tr>
+    <tr>
         <th>Title</th>
         <td><?php echo $post->title; ?></td>
     </tr>
@@ -27,9 +32,6 @@
             } ?>
     </tr>
 
-    
-
-
     <tr>
         <th>Creation</th>
         <td><?php echo $post->create_date; ?></td>
@@ -37,10 +39,5 @@
     <tr>
         <th>Modification</th>
         <td><?php echo $post->update_date; ?></td>
-    </tr>
-    <tr>
-        <th>Image</th>
-            <!--ternario que si la imagen no es null, la muestra, y si si es null muestra el texto de no image found-->
-        <td><?php echo $post->image !=null ?  "<img src='uploads/{$post->image}' class='showimg'/>" :  "No image found" ; ?></td>
     </tr>
     </table>

@@ -1,6 +1,6 @@
 <h5 class=""><strong>Editando post</strong></h5><br>
 
-<form action='?controller=posts&action=update&section_id=<?php echo $post->id; ?>' method="post" enctype="multipart/form-data">
+<form action='?controller=posts&action=update&id=<?php echo $post->id; ?>' method="post" enctype="multipart/form-data">
     
     <table>
         <tr>
@@ -40,7 +40,7 @@
         <tr>
             <th>Photo</th>
             <td  colspan="2">
-            <?php if($post->image) { //si el post que queremos editar tiene foto la mostramos
+            <?php if($post->image) { //Si hi ha foto la mostrem
                 echo "<img src='uploads/{$post->image}' class='showimg'/>";
             }?>
             <input type="file" name="image" accept="image/*"/>
